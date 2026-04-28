@@ -2,7 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
+import dns from "dns";
 import itemRoutes from "./routes/itemRoutes.js";
+
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
+dns.setDefaultResultOrder("ipv4first");
 
 dotenv.config();
 
@@ -19,6 +23,7 @@ app.use("/api/items", itemRoutes);
 
 const PORT = process.env.PORT || 5000;
 
+console.log("Connecting to MongoDB...");
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {

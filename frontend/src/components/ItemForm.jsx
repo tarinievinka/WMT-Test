@@ -4,8 +4,9 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
   const [formData, setFormData] = useState(
     initialValues || {
       name: "",
-      category: "",
+      category: "Electronics",
       price: "",
+      description: "",
     }
   );
 
@@ -30,13 +31,26 @@ function ItemForm({ initialValues, onSubmit, submitText }) {
       <input name="name" value={formData.name} onChange={handleChange} required />
 
       <label>Category</label>
-      <input name="category" value={formData.category} onChange={handleChange} required />
+      <select name="category" value={formData.category} onChange={handleChange} required>
+        <option value="Electronics">Electronics</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Food">Food</option>
+        <option value="Other">Other</option>
+      </select>
 
       <label>Price</label>
       <input
         type="number"
         name="price"
         value={formData.price}
+        onChange={handleChange}
+        required
+      />
+
+      <label>Description</label>
+      <textarea
+        name="description"
+        value={formData.description}
         onChange={handleChange}
         required
       />

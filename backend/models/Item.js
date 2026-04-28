@@ -7,25 +7,22 @@ const itemSchema = new mongoose.Schema(
       required: [true, "Item name is required"],
       trim: true,
     },
-    category: {
-      type: String,
-      required: [true, "Category is required"],
-      trim: true,
-    },
+
     price: {
       type: Number,
       required: [true, "Price is required"],
       min: [0, "Price cannot be negative"],
     },
-    discription: {
+    description: {
       type: String,
-      required: [true,"Discription is required"],
+      required: [true, "Description is required"],
       trim: true,
     },
     category: {
       type: String,
-      required: [true,"Category is required"],
-      Enumerator: ['Electronics','Clothing','Food','Other'],
+      required: [true, "Category is required"],
+      trim: true,
+      enum: ["Electronics", "Clothing", "Food", "Other"],
     }
   },
   { timestamps: true }
