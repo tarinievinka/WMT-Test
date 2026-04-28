@@ -23,7 +23,10 @@ const itemSchema = new mongoose.Schema(
       required: [true, "Category is required"],
       trim: true,
       enum: ["Electronics", "Clothing", "Food", "Other"],
-    }
+    },
+    imageUrl: { 
+      type: String, 
+      trim: true },
   },
   { timestamps: true }
 );
